@@ -18,4 +18,16 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("/lucky", name="luckynumber")
+     */
+  public function luckynumber(){
+  $number = random_int(10, 20);
+
+  return $this->render('default/lucky.html.twig', array(
+      'number' => $number,
+  ));
+
+  }
 }
